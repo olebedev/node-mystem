@@ -1,4 +1,5 @@
-Обертка вокруг утилиты ``MyStem`` от [yandex](http://company.yandex.ru/technologies/mystem/).
+Node.js обертка для утилиты ``MyStem`` от [yandex](http://company.yandex.ru/technologies/mystem/).
+==================================================================================================
 
 ### Возможности ###
 
