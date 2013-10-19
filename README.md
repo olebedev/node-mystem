@@ -13,11 +13,11 @@ npm install mystem
 
 При установке скачивается версия ``MyStem`` для Mac OS X. Если у вас другая платформа, то необходимо скачать [MyStem](http://company.yandex.ru/technologies/mystem/noncommercial.xml) и установить в папку ``./vendor/<uname(darwin or linux)>/<platform arch(x64 or x86)>``. После этого можно начать использование.
 
-Функция ``normalize`` принимает два значения: строку и функцию обратного вызова.
+Функция ``mystem`` принимает два значения: строку и функцию обратного вызова.
 
 ```javascript
 > mystem = require('./lib/index')
-> mystem.normalize('В мурелки шлепают пельсиски.\nВ стакелках светится мычай.', console.log);
+> mystem('В мурелки шлепают пельсиски.\nВ стакелках светится мычай.', console.log);
 > null [ { raw: 'мурелка?|мурелки?|мурелок?',
     args: {},
     target: 'мурелка',
@@ -32,7 +32,7 @@ npm install mystem
   { raw: 'светиться', args: {}, target: 'светиться' },
   { raw: 'мычай?', args: {}, target: 'мычай', hypothesis: true } ]
 
-> mystem.normalize('В мурелки шлепают пельсиски.\nВ стакелках светится мычай.', function(err,data){
+> mystem('В мурелки шлепают пельсиски.\nВ стакелках светится мычай.', function(err,data){
 	console.log(data.toString())
 });
 > в
