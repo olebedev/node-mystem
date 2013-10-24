@@ -1,6 +1,6 @@
 {
   "name": "mystem",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js wrapper for `MyStem` morphology text analyzer by Yandex.ru",
   "main": "lib/index.js",
   "scripts": {

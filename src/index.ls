@@ -1,8 +1,12 @@
-require! child_process.spawn
-execFile = "./vendor/#{process.platform}/#{process.arch}/mystem"
+require! {
+  child_process.spawn
+  path
+}
+exec-file = path.resolve __dirname, "..", "vendor", process.platform, process.arch, "mystem"
 
-exec = (text)->
+execute = !->
   [callback, ...args, text] = [].slice.call(arguments).reverse!
+
   text = [text] if !Array.isArray text
   opt = {} <<< defaults <<< args.pop!
   defaults = 
@@ -27,6 +31,7 @@ exec = (text)->
     mystem.kill('SIGHUP')
 
   chunks = ""
+
   mystem.stdout.setEncoding(opt.encode)
   mystem.stdout.on 'data', (d)-> chunks += d
   mystem.stdout.on 'end', (d)-> 
@@ -35,6 +40,10 @@ exec = (text)->
 
   mystem.stdin.setEncoding(opt.encode)
   mystem.stdin.end text.join(' ')
+
+
+  # error, stdout, stderr <~ exec "echo '#{text.join(" ")}' | #{opt.exec-file} #{opt.args.join(" ")}"
+  # callback error, stdout.split(/\n/g)
 
 class Info
   hypothesis:false
@@ -52,7 +61,7 @@ class Info
     @
 
 module.exports = normalize = (text, cb)->
-  exec text, (err, data)->
+  execute text, (err, data)->
     cb err, [new Info(i) for i in data when !!i]
 
 if !module.parent?
