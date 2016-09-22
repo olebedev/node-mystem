@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start":"lsc -wbo lib src",
-    "postinstall": "curl http://download.yandex.ru/mystem/mystem-2.0-macosx10.5.tar.gz > mystem.tar.gz && tar -xvf mystem.tar.gz && mkdir -p vendor/darwin/x64 && mv mystem vendor/darwin/x64 && rm mystem.tar.gz"
+    "postinstall": "curl -L http://download.yandex.ru/mystem/mystem-2.0-macosx10.5.tar.gz > mystem.tar.gz && tar -xvf mystem.tar.gz && mkdir -p vendor/darwin/x64 && mv mystem vendor/darwin/x64 && rm mystem.tar.gz"
   },
   "repository": {
     "type": "git",
